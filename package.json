@@ -1,6 +1,6 @@
 {
   "name": "bite",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "bite",
   "main": "main.js",
   "repository": "https://github.com/ElConcombritos/grossemerde",
@@ -9,7 +9,7 @@
   "scripts": {
     "start": "electron .",
     "dist": "yarn electron-builder",
-    "build-and-publish": "yarn increment-version && yarn electron-builder -p always --linux appimage --win nsis --armv7l",
+    "build-and-publish": "yarn increment-version && yarn electron-builder -p always --linux --armv7l",
     "increment-version": "versiony package.json --patch && git add . && git commit -m 'new version' && git push"
   },
   "devDependencies": {
