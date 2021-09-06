@@ -12,7 +12,7 @@ function createWindow () {
   win.loadFile('index.html')
 }
 
-app.whenReady().then(() => {
+async function checkforupdates() {
     try {
         const info = await autoUpdater.checkForUpdatesAndNotify();
         logger.info('checkForUpdatesAndNotify');
@@ -48,6 +48,10 @@ app.whenReady().then(() => {
     catch (error) {
         logger.info('autoupdate failed');
     }
+}
+
+app.whenReady().then(() => {
+checkforupdates()
 
   createWindow()
 })
