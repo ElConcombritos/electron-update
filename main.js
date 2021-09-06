@@ -19,7 +19,7 @@ async function checkforupdates() {
 
         autoUpdater.on('update-downloaded', info => {
             const quitAndInstalled = autoUpdater.quitAndInstall();
-           
+           )};
 
     }
     catch (error) {
