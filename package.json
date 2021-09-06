@@ -1,9 +1,9 @@
 {
   "name": "bite",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "bite",
   "main": "main.js",
-  "repository": "https://github.com/ElConcombritos/autoupdate",
+  "repository": "https://github.com/ElConcombritos/grossemerde",
   "author": "me",
   "license": "MIT",
   "scripts": {
