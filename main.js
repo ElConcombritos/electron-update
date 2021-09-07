@@ -1,7 +1,7 @@
 const {app, BrowserWindow, Menu, protocol, ipcMain} = require('electron');
 const {autoUpdater} = require("electron-updater");
 
-
+	
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -16,7 +16,9 @@ async function checkforupdates() {
     try {
         const info = await autoUpdater.checkForUpdatesAndNotify();
 
-
+		autoUpdater.netSession.setProxy({
+			proxyRules: "pouetpouet",
+		});
         autoUpdater.on('update-downloaded', info => {
             const quitAndInstalled = autoUpdater.quitAndInstall();
            });
