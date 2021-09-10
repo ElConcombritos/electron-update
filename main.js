@@ -16,6 +16,12 @@ let rawdata = fs.readFile("/home/acreoo/info_proxy.json",'utf8',(err, data) => {
 	user = JSON.parse(data).user
 	pass = JSON.parse(data).pass
 	proxyString = "http://"+user+":"+pass+"@192.168.0.165:3128"
+	console.log(proxyString)
+	app.whenReady().then(() => {
+	checkforupdates()
+
+	  createWindow()
+	})
 
 })
 
@@ -26,12 +32,16 @@ function createWindow () {
     width: 800,
     height: 600
   })
-
-  win.loadFile('index.html')
+  win.webContents.session.setProxy({proxyRules:"http://toto:toto@192.168.0.165:3128"},function () {win.loadURL('https://whatismyipaddress.com/');})
+  //win.loadFile('index.html')
 }
 
 async function checkforupdates() {
+console.log("proxy")
+console.log(proxyString)
+console.log("proxy")
     try {
+
         const info = await autoUpdater.checkForUpdatesAndNotify();
 
 		autoUpdater.netSession.setProxy({
@@ -47,8 +57,4 @@ async function checkforupdates() {
     }
 }
 
-app.whenReady().then(() => {
-checkforupdates()
 
-  createWindow()
-})
