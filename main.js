@@ -7,12 +7,6 @@ var user = ""
 var pass = ""
 var proxyString = ""
 
-autoUpdater.on('login', async (authInfo, callback) => {
-  let username = "toto"
-  let pass = "toto"
-  callback(username, pass)
-})
-
 
 let rawdata = fs.readFile("/home/acreoo/info_proxy.json",'utf8',(err, data) => {
 	if (err) {
@@ -23,7 +17,9 @@ let rawdata = fs.readFile("/home/acreoo/info_proxy.json",'utf8',(err, data) => {
 	user = JSON.parse(data).user
 	pass = JSON.parse(data).pass
 	proxyString = "http://192.168.0.165:3128"
-	console.log(proxyString)
+	autoUpdater.on('login', async (authInfo, callback) => {
+	  callback(user, pass)
+	})
 	app.whenReady().then(() => {
 	checkforupdates()
 
@@ -43,9 +39,6 @@ function createWindow () {
 }
 
 async function checkforupdates() {
-console.log("proxy")
-console.log(proxyString)
-console.log("proxy")
     try {
 
         const info = await autoUpdater.checkForUpdatesAndNotify();
