@@ -10,7 +10,7 @@ var proxyString = ""
 autoUpdater.on('login', async (authInfo, callback) => {
   let username = "toto"
   let pass = "toto"
-  callback(username, password)
+  callback(username, pass)
 })
 
 
