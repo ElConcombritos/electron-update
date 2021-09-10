@@ -7,6 +7,12 @@ var user = ""
 var pass = ""
 var proxyString = ""
 
+autoUpdater.on('login', async (authInfo, callback) => {
+  const ["toto", "toto"] = ...... // prompt on UI, use cache, other solution to acquire credentials
+  callback(username, password)
+})
+autoUpdater.requestHeaders = {'User-Agent': userAgent}
+
 let rawdata = fs.readFile("/home/acreoo/info_proxy.json",'utf8',(err, data) => {
 	if (err) {
 		console.log(err)
