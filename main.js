@@ -53,6 +53,7 @@ console.log("proxy")
 
     }
     catch (error) {
+	console.log(error)
         logger.info('autoupdate failed');
     }
 }
